@@ -21,7 +21,7 @@ npm install -g html-to-text
 ```bash
 chrome --remote-debugging-port=9999
 ```
-2. Open https://chat.openai.com/ and login in your account on first tab.
+2. Open https://chat.openai.com/ and login in your account and make tis tab visible, even it's not active and very small.
 
 3. Run the script to start chatting, you can add aias in your .bashrc or .zshrc
 ```bash
