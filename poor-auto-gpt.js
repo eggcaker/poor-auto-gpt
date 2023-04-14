@@ -10,14 +10,12 @@ const options = {
 };
 
 (async () => {
-  const browser = await puppeteer.connect({ browserURL: 'http://127.0.0.1:9999/json' });
+  const browser = await puppeteer.connect({ browserURL: 'http://127.0.0.1:9999/json', defaultViewport: null });
   const pages = await browser.pages();
 
-  // Define the URL to search for
   const chatGPTUrl = 'https://chat.openai.com/';
 
   let page = pages.filter(p => p.url() === chatGPTUrl)[0];
-
   if (page) {
     await page.type('textarea', query);
     await page.keyboard.press('Enter');
