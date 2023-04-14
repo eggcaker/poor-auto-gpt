@@ -4,6 +4,10 @@ You don't need to use api key to use this script. It's free.
 ## Screenshots
 ![Screenshot](./assets/screenshot.png)
 
+
+[![Watch the video](./assets/gpt.png)](./assets/gpt.mp4)
+![Screenshot](./assets/gpt.mp4)
+
 ## Prerequisites
 - nodejs
 - google chrome
