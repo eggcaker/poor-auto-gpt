@@ -4,7 +4,9 @@ You don't need to use api key to use this script. It's free.
 ## Screenshots
 ![Screenshot](./assets/screenshot.png)
 
-[![Watch the video](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/HLYE_j0lDF8)
+
+https://user-images.githubusercontent.com/21374/231947398-1f853855-b696-44c8-9141-fb6400a728d1.mp4
+
 
 
 ## Prerequisites
