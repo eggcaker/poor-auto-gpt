@@ -31,8 +31,22 @@ chrome --remote-debugging-port=9999
 
 3. Run the script to start chatting, you can add aias in your .bashrc or .zshrc
 ```bash
-node poor-auto-gpt.js <Query>
+node poor-gpt.js <Query>
 ```
+### Editor integration
+You can any kind of editor to run command to get output back. here just use Emacs for demo 
+```emacs-lisp
+(defun query-gpt-chat()
+  "Run script command with current line content and insert output in buffer"
+  (interactive)
+  (let ((current-line (thing-at-point 'line t))
+        (output (shell-command-to-string (concat "ngpt " (thing-at-point 'line t)))))
+    (insert (mapconcat 'identity (nthcdr 4 (split-string output "\n")) "\n"))))
+
+(global-set-key (kbd "C-;") 'query-gpt-chat)
+```
+which ngpt just a alias to command `node poor-gpt.js`
+
 
 ## todo list in the future
 - [ ] Add auto gpt feature
