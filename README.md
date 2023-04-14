@@ -2,9 +2,10 @@ Run ChatGPT in cli by using puppeteer communicate with chrome browser. It's a po
 You don't need to use api key to use this script. It's free.
 
 ## Screenshots
+### Command line
 ![Screenshot](./assets/screenshot.png)
 
-
+### Inside Emacs
 https://user-images.githubusercontent.com/21374/231947398-1f853855-b696-44c8-9141-fb6400a728d1.mp4
 
 
