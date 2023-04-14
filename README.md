@@ -5,8 +5,8 @@ You don't need to use api key to use this script. It's free.
 ![Screenshot](./assets/screenshot.png)
 
 
-[![Watch the video](./assets/gpt.png)](https://youtu.be/HLYE_j0lDF8)
-![Screenshot](./assets/gpt.mp4)
+[![Watch the video]([./assets/gpt.png](https://i.imgur.com/vKb2F1B.png)](https://youtu.be/HLYE_j0lDF8)
+
 
 ## Prerequisites
 - nodejs
