@@ -9,18 +9,6 @@ const options = {
   wordwrap: 130,
 };
 
-
-function convertHtmlToText(html) {
-  let text = html.replace(/<\/p>/g, "\n")
-    .replace(/<li><p>/g, "  - ")
-    .replace(/<\/li>/g, "")
-    .replace(/<ol>/g, "")
-    .replace(/<\/ol>/g, "")
-    .replace(/<p>/g, "");
-
-  return text;
-}
-
 (async () => {
   const browser = await puppeteer.connect({ browserURL: 'http://127.0.0.1:9999/json' });
   const pages = await browser.pages();
@@ -38,6 +26,6 @@ function convertHtmlToText(html) {
 
   const searchResults = await page.$$eval('div.markdown', elements => elements.map(el => el.innerHTML));
   console.log( convert(searchResults[searchResults.length - 1], options));
-  await browser.disconnect();
+  browser.disconnect();
 })();
 
