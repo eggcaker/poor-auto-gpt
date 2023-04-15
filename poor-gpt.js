@@ -9,10 +9,14 @@ const options = {
 };
 
 (async () => {
+
   const browser = await puppeteer.connect({
     browserURL: "http://127.0.0.1:9999/json",
     defaultViewport: null,
+    timeout: 0,
+    protocolTimeout: 120000
   });
+
   const pages = await browser.pages();
 
   const chatGPTUrl = "https://chat.openai.com/";
