@@ -3,7 +3,8 @@ You don't need to use api key to use this script. It's free.
 
 ## Screenshots
 ### Command line
-![Screenshot](./assets/screenshot.png)
+
+https://user-images.githubusercontent.com/21374/232223263-5c6fe9a0-d59b-43d4-8e21-3ed79d681c6b.mp4
 
 ### Inside Emacs
 https://user-images.githubusercontent.com/21374/231947398-1f853855-b696-44c8-9141-fb6400a728d1.mp4
