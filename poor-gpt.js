@@ -1,39 +1,62 @@
-const puppeteer = require('puppeteer');
-const { convert } = require('html-to-text');
-
+const puppeteer = require("puppeteer");
+const { convert } = require("html-to-text");
 
 const args = process.argv.slice(2);
-const query = args.join(' ');
+const query = args.join(" ");
 
 const options = {
   wordwrap: 130,
 };
 
 (async () => {
-  const browser = await puppeteer.connect({ browserURL: 'http://127.0.0.1:9999/json', defaultViewport: null });
+  const browser = await puppeteer.connect({
+    browserURL: "http://127.0.0.1:9999/json",
+    defaultViewport: null,
+  });
   const pages = await browser.pages();
 
-  const chatGPTUrl = 'https://chat.openai.com/';
+  const chatGPTUrl = "https://chat.openai.com/";
 
-  let page = pages.filter(p => p.url() === chatGPTUrl)[0];
+  let page = pages.filter((p) => p.url().startsWith(chatGPTUrl))[0];
+
   if (page) {
-    await page.type('textarea', query);
-    await page.keyboard.press('Enter');
+    let messages = [];
+    if (query.indexOf("POOR_GPT_SEP") > -1) {
+      messages = query.split("POOR_GPT_SEP");
+    } else {
+      messages[0] = query;
+    }
 
-    await page.waitForFunction(() => {
-      const element = Array.from(document.querySelectorAll('div')).find(el => el.textContent.includes('Regenerate response'));
-      if (element) {
-        return true;
-      }
-      return false;
-    }, { timeout: 30000 });
+    for (let i = 0; i < messages.length; i++) {
+      const message = messages[i];
+      await page.type("textarea", message);
+      await page.keyboard.down("Shift");
+      await page.keyboard.press("Enter");
+      await page.keyboard.up("Shift");
+    }
 
-    const searchResults = await page.$$eval('div.markdown', elements => elements.map(el => el.innerHTML));
+    await page.keyboard.press("Enter");
+
+    await page.waitForFunction(
+      () => {
+        const element = Array.from(document.querySelectorAll("div")).find(
+          (el) => el.textContent.includes("Regenerate response")
+        );
+        if (element) {
+          return true;
+        }
+        return false;
+      },
+      { timeout: 60000 }
+    );
+
+    const searchResults = await page.$$eval("div.markdown", (elements) =>
+      elements.map((el) => el.innerHTML)
+    );
     console.log(convert(searchResults[searchResults.length - 1], options));
   } else {
-    console.log('ChatGPT tab not found.');
+    console.log("ChatGPT tab not found.");
   }
 
   browser.disconnect();
 })();
-
