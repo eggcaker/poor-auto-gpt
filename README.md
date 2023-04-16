@@ -1,4 +1,4 @@
-Run ChatGPT in cli by using puppeteer communicate with chrome browser. It's a poor version of AutoGPT. It's not perfect, but it works. 
+Run ChatGPT in cli by using puppeteer communicate with chrome browser. It's a poor version of AutoGPT(The final goal). It's not perfect, but it works. 
 You don't need to use api key to use this script. It's free.
 
 ## Screenshots
