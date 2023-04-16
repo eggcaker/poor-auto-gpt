@@ -29,12 +29,23 @@ chrome --remote-debugging-port=9999
 ```
 2. Open https://chat.openai.com/ and login in your account and make tis tab visible, even it's not active and very small.
 
-3. Run the script to start chatting, you can add aias in your .bashrc or .zshrc
+3. Run the script to start chatting
 ```bash
 node poor-gpt.js <Query>
 ```
+4. Create a alias or shell script `gpt`
+```
+#!/usr/bin/env bash 
+node <path-to-repo>/poor-gpt.js $*
+```
+for windows create a gpt.bat file 
+```
+ @echo off
+    node "<path-to-repo>/poor-gpt.js" %*
+```
+
 ### Editor integration
-You can any kind of editor to run command to get output back. here just use Emacs for demo 
+You can run the gpt command in any kind of editor. here just use Emacs for demo 
 ```emacs-lisp
 (defun query-gpt-chat()
   "Run script command with current line content and insert output in buffer"
